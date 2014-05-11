@@ -6,8 +6,12 @@
 //  Copyright (c) 2014年 Koari Ikada. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface NetworkingDalegate : NSObject
+@protocol NetworkingDalegate <NSObject>
+
+@optional
+
+- (void)recieveEveryone:(NSDictionary *)dictionary;
 
 @end

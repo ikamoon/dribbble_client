@@ -10,4 +10,6 @@
 
 @interface CollectionViewCell : PSCollectionViewCell
 
++ (CGFloat)rowHeightForObject:(id)object;
+
 @end

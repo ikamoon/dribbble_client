@@ -1,5 +1,5 @@
 //
-//  DribbbleClient.h
+//  EveryoneModel.h
 //  dribbble_subject
 //
 //  Created by ikamon on 2014/04/20.
@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetworkingDalegate.h"
 
-@interface DribbbleClient : NSObject
+@interface DribbbleCoreData : NSObject <NetworkingDalegate>
+
+- (instancetype)init;
+
+- (void)getShots:(NSString *)page reciever:(id)reciever;
+
++ (DribbbleCoreData *)sharedCoreData;
+- (NSManagedObjectContext *)managedObjectContext;
 
 @end

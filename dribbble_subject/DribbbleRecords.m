@@ -7,7 +7,10 @@
 //
 
 #import "DribbbleRecords.h"
+#import "DribbbleSQLite.h"
 
-@implementation DribbbleRecords
+@implementation DribbbleRecords {
+    NSMutableArray* _shots;
+}
 
 @end

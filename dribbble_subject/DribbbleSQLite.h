@@ -10,4 +10,7 @@
 
 @interface DribbbleSQLite : NSObject
 
+//  共有するMBSQLiteを戻す。
++ (DribbbleSQLite*)sharedSQLite;
+
 @end

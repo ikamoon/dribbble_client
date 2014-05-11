@@ -10,4 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
+- (id)initWithShotData:(NSDictionary *)shotData;
+
 @end

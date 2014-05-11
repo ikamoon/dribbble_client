@@ -7,18 +7,21 @@
 //
 
 #import "DetailViewController.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface DetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController {
+    NSDictionary *shotData;
+}
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithShotData:(NSDictionary *)shot
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        shotData = shot;
     }
     return self;
 }
@@ -27,6 +30,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width - 10, self.view.frame.size.width - 10)];
+    [image setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", [shotData objectForKey:@"image_url"]]]];
+    image.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [self.view addSubview:image];
 }
 
 - (void)didReceiveMemoryWarning

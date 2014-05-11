@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSCollectionView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <PSCollectionViewDataSource, PSCollectionViewDelegate, UIScrollViewDelegate>
+
+@property (nonatomic,retain) PSCollectionView *collectionView;
 
 @end
