@@ -54,7 +54,16 @@
     [super collectionView:collectionView fillCellWithObject:object atIndex:index];
     
     //オブジェクトから値を取り出す
-    [imageView setImageWithURL:[NSURL URLWithString:(NSString *)[object objectForKey:@"image_teaser_url"]]];
+    NSURL *url = [NSURL URLWithString:(NSString *)[object objectForKey:@"image_teaser_url"]];
+    [imageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        imageView.alpha = 0;
+        [UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            imageView.alpha = 1;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }];
+//                  setImageWithURL:[NSURL URLWithString:(NSString *)[object objectForKey:@"image_teaser_url"]]];
     titleLabel.text = [NSString stringWithFormat:@"%@", [object objectForKey:@"title"]];
 }
 

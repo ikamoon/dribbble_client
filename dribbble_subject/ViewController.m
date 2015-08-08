@@ -97,10 +97,18 @@
     
     CollectionViewCell *cell = (CollectionViewCell *)[self.collectionView dequeueReusableViewForClass:[CollectionViewCell class]];
     
-    CGFloat height = [CollectionViewCell rowHeightForObject:shot];
-    cell = [[CollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/2 - 10, height)];
+    NSInteger cellIndex = cell.index;
+    if (cell == nil || cellIndex != index) {
+        CGFloat height = [CollectionViewCell rowHeightForObject:shot];
+        cell = [[CollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/2 - 10, height)];
+//    cell.frame = CGRectMake(0, 0, self.view.frame.size.width/2 - 10, height);
+    } else {
+        NSLog(@"cell");
+    }
+    
     
     [cell collectionView:collectionView fillCellWithObject:shot atIndex:index];
+    
     
     return cell;
 }
